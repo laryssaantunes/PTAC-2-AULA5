@@ -1,42 +1,80 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-export default function todo () {
+import './stily.css';
 
-  const [atividade, setAtividade] = useState("");
+export default function Todo() {
   const [lista, setLista] = useState([]);
-  const [id,setId] = useState(1);
-    const salvar =(e) =>{
-        e.preventDefault();
-        setLista([...lista, {
-                atividade: atividade,
-                id: id
-        }]);
-        setId(id + 1);
-        setAtividade("");
-    };
-    const remover = (id) => {
-      setLista(lista.filter((ativ) => (ativ.id !== id ? lista : null)))
-      const auxLista = [];
-      lista.map((lista) => {
-        if(lista.id !== id){
-          auxLista.push(lista);
-        }
-      });
-      setLista(auxLista);
-    }
+  const [id, setId] = useState(1);
+  const [Nome, setNome] = useState("");
+  const [Cpf, setCpf] = useState("");
+  const [Idade, setIdade] = useState("");
+  const [exibirMensagem, setExibirMensagem] = useState(false); 
+
+  function salvar(e) {
+    e.preventDefault();
+    setLista([...lista, { id: id, Nome: Nome, Cpf: Cpf, Idade: Idade }]);
+    setId(id + 1);
+    setNome("");
+    setCpf("");
+    setIdade("");
+    setExibirMensagem(true); 
+  }
+
+  const remover = (id) => {
+    const listaFiltrada = lista.filter((item) => item.id !== id);
+    setLista(listaFiltrada);
+  }
 
   return (
-    <div>
-      <Link to="/">home</Link>
-      <h1>Lista de Atividades</h1>
+    <div className="container">
+      <h1>Login</h1>
+      <h1>Seus dados</h1>
       <form onSubmit={salvar}>
-        <input value={atividade} type="text"
-             onChange={(e) => setAtividade(e.target.value)} />
-
-        <button>ADD</button>
+        <div className="input-container">
+          <label htmlFor="nome">Nome:</label>
+          <input
+            id="nome"
+            className="pink-border-input"
+            onChange={(e) => setNome(e.target.value)}
+            type="text"
+            value={Nome}
+          />
+          <label htmlFor="cpf">CPF:</label>
+          <input
+            id="cpf"
+            className="pink-border-input"
+            onChange={(e) => setCpf(e.target.value)}
+            type="text"
+            value={Cpf}
+          />
+          <label htmlFor="idade">Idade:</label>
+          <input
+            id="idade"
+            className="pink-border-input"
+            onChange={(e) => setIdade(e.target.value)}
+            type="text"
+            value={Idade}
+          />
+          <button className="pink-border-button">add</button>
+        </div>
       </form>
-      {lista.map((ativ)=> <p>{ativ.atividade}</p>)}
 
+      {exibirMensagem && (
+        <p className="mensagem-cor-de-rosa">Parabéns</p>
+      )}
+
+      <div>
+        <div className="values-area">
+          {lista.map((item) => (
+            <div key={item.id}>
+              <p>Nome: {item.Nome}</p>
+              <p>CPF: {item.Cpf}</p>
+              <p>Idade: {item.Idade}</p>
+              <button className="pink-border-button" onClick={() => remover(item.id)}>Remover</button>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
-  ); 
+  );
 }
