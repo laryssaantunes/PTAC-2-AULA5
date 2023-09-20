@@ -6,16 +6,16 @@ export default function Todo() {
   const [lista, setLista] = useState([]);
   const [id, setId] = useState(1);
   const [Nome, setNome] = useState("");
-  const [Cpf, setCpf] = useState("");
+  const [Imagem, setImagem] = useState("");
   const [Idade, setIdade] = useState("");
   const [exibirMensagem, setExibirMensagem] = useState(false); 
 
   function salvar(e) {
     e.preventDefault();
-    setLista([...lista, { id: id, Nome: Nome, Idade: Idade }]);
+    setLista([...lista, { id: id, Nome: Nome, Idade: Idade, Imagem: Imagem }]);
     setId(id + 1);
     setNome("");
-    setCpf("");
+    setImagem("");
     setIdade("");
     setExibirMensagem(true); 
   }
@@ -28,7 +28,7 @@ export default function Todo() {
   return (
     <div className="container">
       <h1>Login</h1>
-      <h1>Seus dados</h1>
+      <h1>Informe seus dados</h1>
       <form onSubmit={salvar}>
         <div className="input-container">
           <label htmlFor="nome">Nome:</label>
@@ -47,6 +47,14 @@ export default function Todo() {
             type="text"
             value={Idade}
           />
+          <label htmlFor="Imagem">Imagem:</label>
+          <input
+            id="Imagem"
+            className="border-input"
+            onChange={(e) => setImagem(e.target.value)}
+            type="text"
+            value={Imagem}
+          />
           <button className="button">add</button>
         </div>
       </form>
@@ -57,6 +65,7 @@ export default function Todo() {
             <div key={item.id}>
               <p>Nome: {item.Nome}</p>
               <p>Idade: {item.Idade}</p>
+              <img src= {item.Imagem} alt="" />
               <button className=".button" onClick={() => remover(item.id)}>Remover</button>
             </div>
           ))}
