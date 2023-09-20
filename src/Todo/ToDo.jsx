@@ -34,7 +34,7 @@ export default function Todo() {
           <label htmlFor="nome">Nome:</label>
           <input
             id="nome"
-            className="pink-border-input"
+            className="border-input"
             onChange={(e) => setNome(e.target.value)}
             type="text"
             value={Nome}
@@ -42,7 +42,7 @@ export default function Todo() {
           <label htmlFor="idade">Idade:</label>
           <input
             id="idade"
-            className="pink-border-input"
+            className="border-input"
             onChange={(e) => setIdade(e.target.value)}
             type="text"
             value={Idade}
