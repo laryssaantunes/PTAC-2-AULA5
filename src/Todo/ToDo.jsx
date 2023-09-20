@@ -12,7 +12,7 @@ export default function Todo() {
 
   function salvar(e) {
     e.preventDefault();
-    setLista([...lista, { id: id, Nome: Nome, Cpf: Cpf, Idade: Idade }]);
+    setLista([...lista, { id: id, Nome: Nome, Idade: Idade }]);
     setId(id + 1);
     setNome("");
     setCpf("");
@@ -39,14 +39,6 @@ export default function Todo() {
             type="text"
             value={Nome}
           />
-          <label htmlFor="cpf">CPF:</label>
-          <input
-            id="cpf"
-            className="pink-border-input"
-            onChange={(e) => setCpf(e.target.value)}
-            type="text"
-            value={Cpf}
-          />
           <label htmlFor="idade">Idade:</label>
           <input
             id="idade"
@@ -55,22 +47,17 @@ export default function Todo() {
             type="text"
             value={Idade}
           />
-          <button className="pink-border-button">add</button>
+          <button className="button">add</button>
         </div>
       </form>
-
-      {exibirMensagem && (
-        <p className="mensagem-cor-de-rosa">Parabéns</p>
-      )}
 
       <div>
         <div className="values-area">
           {lista.map((item) => (
             <div key={item.id}>
               <p>Nome: {item.Nome}</p>
-              <p>CPF: {item.Cpf}</p>
               <p>Idade: {item.Idade}</p>
-              <button className="pink-border-button" onClick={() => remover(item.id)}>Remover</button>
+              <button className=".button" onClick={() => remover(item.id)}>Remover</button>
             </div>
           ))}
         </div>
