@@ -38,6 +38,7 @@ export default function Todo() {
             onChange={(e) => setNome(e.target.value)}
             type="text"
             value={Nome}
+
           />
           <label htmlFor="idade">Idade:</label>
           <input
@@ -47,6 +48,7 @@ export default function Todo() {
             type="text"
             value={Idade}
           />
+
           <label htmlFor="Imagem">Imagem:</label>
           <input
             id="Imagem"
@@ -55,6 +57,7 @@ export default function Todo() {
             type="text"
             value={Imagem}
           />
+
           <button className="button">add</button>
         </div>
       </form>
@@ -65,7 +68,7 @@ export default function Todo() {
             <div key={item.id}>
               <p>Nome: {item.Nome}</p>
               <p>Idade: {item.Idade}</p>
-              <img src= {item.Imagem} alt="" />
+              <img src= {item.Imagem} alt="" class= "imagem" />
               <button className=".button" onClick={() => remover(item.id)}>Remover</button>
             </div>
           ))}
