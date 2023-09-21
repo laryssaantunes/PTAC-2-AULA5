@@ -28,7 +28,7 @@ export default function Todo() {
   return (
     <div className="container">
       <h1>Login</h1>
-      <h1>Informe seus dados</h1>
+      <h1>Informe dados do seu produto</h1>
       <form onSubmit={salvar}>
         <div className="input-container">
           <label htmlFor="nome">Nome:</label>
@@ -53,7 +53,7 @@ export default function Todo() {
           <input
             id="Imagem"
             className="border-input"
-            onChange={(e) => setImagem(e.target.value)}
+
             type="text"
             value={Imagem}
           />

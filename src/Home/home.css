@@ -1,12 +1,25 @@
-.logo{
-    max-width: 65px;
-}
-.laryssa{
-    background-color: #ab1d8c;
-    text-align: center; 
-    padding: 45px;
-    margin: 45px;
-    border: 2px solid #ab1d8c;
-    border-radius: 10px;
-}
-
+/* Estilos para a navbar */
+.navbar {
+    background-color: rgb(136, 94, 152);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 2px solid #8c6aae;
+  }
+  
+  .logo {
+    max-width: 50px; /* Ajuste o tamanho da logo conforme necessário */
+  }
+  
+  /* Estilos para a introdução */
+  .laryssan {
+    background-color: #9f7cbc; /* Cor de fundo da introdução */
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid #ba5ecd;
+    border-radius: 5px;
+  }
+  
+  /* Estilos adicionais conforme necessário */
