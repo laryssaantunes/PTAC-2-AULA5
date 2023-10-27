@@ -70,9 +70,12 @@ export default function Todo() {
         <div className="values-area">
           {lista.map((item) => (
             <div key={item.id}>
+
+              <Link to={`/detalhe/${ativ.id}`}>
               <p>Nome: {item.Nome}</p>
               <p>Idade: {item.Idade}</p>
               <img src= {item.Imagem} alt="" class= "imagem" />
+              </Link>
               <button className=".button" onClick={() => remover(item.id)}>Remover</button>
             </div>
           ))}
