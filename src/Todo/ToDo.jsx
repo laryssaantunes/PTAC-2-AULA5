@@ -9,7 +9,7 @@ export default function Todo() {
   const [Nome, setNome] = useState([listaLocalStorage.length -1]?.id + 1 || 1);
   const [Imagem, setImagem] = useState("");
   const [Idade, setIdade] = useState("");
-  const [exibirMensagem, setExibirMensagem] = useState(false); 
+ 
 
 
   useEffect(()=> {localStorage.setItem("Lista", JSON.stringify(lista))}, [lista]);
@@ -57,7 +57,7 @@ export default function Todo() {
           <input
             id="Imagem"
             className="border-input"
-
+            onChange={(e) => setImagem(e.target.value)}
             type="text"
             value={Imagem}
           />
@@ -71,7 +71,7 @@ export default function Todo() {
           {lista.map((item) => (
             <div key={item.id}>
 
-              <Link to={`/detalhe/${ativ.id}`}>
+              <Link to={`/detalhe/${item.id}`}>
               <p>Nome: {item.Nome}</p>
               <p>Idade: {item.Idade}</p>
               <img src= {item.Imagem} alt="" class= "imagem" />
