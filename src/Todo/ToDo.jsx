@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import './stily.css';
 
 export default function Todo() {
-  const listaLocalStorage = JSON.parse(localStorage.getItem("Lista") );
-  const [lista, setLista] = useState(listaLocalStorage || []) ;
+  const listaLocalStorage = JSON.parse(localStorage.getItem("Lista") || []);
+  const [lista, setLista] = useState(listaLocalStorage ) ;
   const [id, setId] = useState(1);
   const [Nome, setNome] = useState([listaLocalStorage.length -1]?.id + 1 || 1);
   const [Imagem, setImagem] = useState("");

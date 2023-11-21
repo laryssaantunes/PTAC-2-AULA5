@@ -1,7 +1,7 @@
-export default function Card ({atividade}){
+export default function Card ({pessoa}){
     return(
         <div>
-            <h1>{atividade.atividade}</h1>
+            <h1>{pessoa.Nome}</h1>
             </div>
     );
 }
